@@ -1,5 +1,6 @@
 <?php
       require_once('sessions.php');
+
 ?>
 
 
@@ -61,24 +62,7 @@
     $userdata = json_decode($userdata);
   }
 
-    if(isset($_GET['searchbtn']) == 'search') {
-
-    $id = $_GET['emailId'];
-
-    $method = 'GET';
-    $url = 'http://localhost:3000/connector/'.$id;
-    $data = NULL;
-
-    $connector = coralapi($method, $url, $data);
-    $userdata = json_decode($userdata);
-  }//else{
-
-  //     $method = 'GET';
-  //     $url = 'http://localhost:3000/connector';
-  //     $data = NULL;
-
-  //     $connector = coralapi($method, $url, $data);
-  // }
+    
 
   //Call DELETE method
   if(isset($_GET['action']) && $_GET['action'] == 'delete') {
@@ -140,6 +124,53 @@
       }else{
         $_SESSION['ErrorMessage']= "Something went wrong";
         header('location: all-users.php');
+      }
+    }
+  }
+
+
+
+
+
+    if(isset($_POST['submit']))
+  {
+    // Call POST method to update and create
+    // if($_POST['submit'] == 'search')
+    // {
+    //   $method = 'POST';
+    //   $url = 'http://localhost:3000/connector/create';
+    //   $data = json_encode($_POST);
+
+    //   $result = coralapi($method, $url, $data);
+      
+    //   if($result){
+    //     $_SESSION['SuccessMessage']= "User Created Successfully";
+    //     header('location: all-users.php');
+
+    //   }else{
+    //     $_SESSION['ErrorMessage']= "Something went wrong";
+    //     header('location: all-users.php');
+    //   }
+    // }
+
+    // Call PUT method
+    if($_POST['submit'] == 'search')
+    {
+      $id = $_POST['emailId'];
+
+      $method = 'GET';
+      $url = 'http://localhost:3000/connector/'.$id;
+      $data = json_encode($_POST);
+
+      $result = coralapi($method, $url, $data);
+
+      if($result){
+        $_SESSION['SuccessMessage']= "User search result shown below";
+        header('location: result.php');
+
+      }else{
+        $_SESSION['ErrorMessage']= "User Not Found";
+        header('location: result.php');
       }
     }
   }

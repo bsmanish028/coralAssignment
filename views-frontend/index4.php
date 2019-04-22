@@ -37,13 +37,15 @@
         <input type="email" name="emailId" class="form-control" />
       </div>
       <div class="col-sm-3">
-        <input type="hidden" name="emailId" value="<?php echo $userdata->emailid ?>">
-        <button type="submit" name="searchbtn" value="search" class="btn btn-warning">Search</button>
+        
+        <button type="submit" name="submit" value="search" class="btn btn-warning">Search</button>
       </div>
     </div>
 
   </form>
+
   <br>
+  
   <hr>
 
 </div>
@@ -91,7 +93,7 @@
           <div>
             <label><span class="fields">Password: </span></label>
             <div class="input-group">
-              <input class="form-control" type="password" name="password" id="password" placeholder="Type Password" required>
+              <input class="form-control" type="password" name="password" id="password" placeholder="Type Password" required minlength="6">
             </div><br>
           </div>
 
