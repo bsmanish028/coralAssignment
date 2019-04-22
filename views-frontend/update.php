@@ -40,7 +40,7 @@
           <div>
             <label><span class="fields">Username: </span></label>
             <div class="input-group ">
-              <input class="form-control" type="text" name="userName" id="username" placeholder="Enter Username" required  value="<?php echo $userdata->userName ?>">
+              <input class="form-control" type="text" name="userName"  placeholder="Enter Username" required  value="<?php echo $userdata->userName ?>">
             </div><br>
           </div>
 
@@ -48,7 +48,7 @@
           <div>
             <label><span class="fields">EmailID: </span></label>
             <div class="input-group">
-              <input class="form-control" type="email" name="emailId" id="email" placeholder="Enter Email" required  value="<?php echo $userdata->emailId ?>">
+              <input class="form-control" type="email" name="emailId"  placeholder="Enter Email" required  value="<?php echo $userdata->emailId ?>">
             </div><br>
           </div>
 
@@ -58,7 +58,7 @@
           <div>
             <label><span class="fields">Phone No.: </span></label>
             <div class="input-group">
-              <input class="form-control" type="number" name="phoneNo" id="phone" pattern="[0]{1}[0-9]{9}" placeholder="Enter Phone Number" required maxlength="10"  value="<?php echo $userdata->phoneNo ?>">
+              <input class="form-control" type="number" name="phoneNo"  pattern="[0]{1}[0-9]{9}" placeholder="Enter Phone Number" required maxlength="10"  value="<?php echo $userdata->phoneNo ?>">
             </div><br>
           </div>
 
@@ -70,7 +70,7 @@
           <div>
             <label><span class="fields">Password: </span></label>
             <div class="input-group">
-              <input class="form-control" type="password" name="password" id="password" placeholder="Type Password" required  value="<?php echo $userdata->password ?>">
+              <input class="form-control" type="password" name="password"  placeholder="Type Password" required  value="<?php echo $userdata->password ?>" minlength="6">
             </div><br>
           </div>
 

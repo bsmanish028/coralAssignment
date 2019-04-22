@@ -49,8 +49,8 @@
                     <td><?php echo $connector->phoneNo ?></td>
                     <td><?php echo $connector->dateTime ?></td>
                     <td>
-                      <a href="update.php?id=<?php echo $connector->emailId?>&action=edit" class="btn btn-info btn-md">Edit</a> 
-                      <a href="all-users.php?id=<?php echo $connector->emailId?>&action=delete" class="btn btn-danger btn-md">Delete</a>
+                      <a href="update.php?emailId=<?php echo $connector->emailId?>&action=edit" class="btn btn-info btn-md">Edit</a> 
+                      <a href="all-users.php?emailId=<?php echo $connector->emailId?>&action=delete" class="btn btn-danger btn-md">Delete</a>
                     </td>
                   </tr>
                 <?php } ?>

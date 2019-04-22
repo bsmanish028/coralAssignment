@@ -51,7 +51,7 @@
   //Call GET method fetch single record
   if(isset($_GET['action']) && $_GET['action'] == 'edit') {
 
-    $id = $_GET['id'];
+    $id = $_GET['emailId'];
 
     $method = 'GET';
     $url = 'http://localhost:3000/connector/'.$id;
@@ -63,7 +63,7 @@
 
     if(isset($_GET['searchbtn']) == 'search') {
 
-    $id = $_GET['id'];
+    $id = $_GET['emailId'];
 
     $method = 'GET';
     $url = 'http://localhost:3000/connector/'.$id;
@@ -83,7 +83,7 @@
   //Call DELETE method
   if(isset($_GET['action']) && $_GET['action'] == 'delete') {
 
-    $id = $_GET['id'];
+    $id = $_GET['emailId'];
 
     $method = 'DELETE';
     $url = 'http://localhost:3000/connector/delete/'.$id;
@@ -125,7 +125,7 @@
     // Call PUT method
     if($_POST['submit'] == 'update')
     {
-      $id = $_POST['id'];
+      $id = $_POST['emailId'];
 
       $method = 'PUT';
       $url = 'http://localhost:3000/connector/update/'.$id;
