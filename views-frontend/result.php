@@ -19,7 +19,7 @@
     <div class="container" style="margin-top: 30px;">
       <h1>Coral Blockchain</h1>
       <br>
-      <p><?php echo $result ?></p>
+      <p><?php echo $userdatas ?></p>
 
       <h2 style="text-align: center;">Search Result</h2>
       <div><?php echo Message();  
@@ -30,24 +30,27 @@
     <span class="" style="margin-left: 74%;">Haven't register yet? GoTo <a href="index4.php">Register</a></span>
 
 
-     <pre> 
+     <!-- <pre> 
       <?php
       echo $result = json_decode($result) ?>
-</pre>
+     </pre> -->
 
 <!-- /*fetching all existing user details*/ -->
 
 
 
-
+<?php echo $userdatas;?>
 
 
 
 <!-- /*fetching all existing user details*/ -->
 <div class="row">
           <div class="col-md-12">
-            <?php $result = json_decode($result) ?>
-            <?php if(!empty($result)) { ?>
+
+            
+            <?php if(!empty($userdatas)) { 
+               ?>
+               <?php echo "HelloGK"; ?>
               <table class="table">
                 <tr>
                   <th>Username</th>
@@ -56,14 +59,15 @@
                   <th>Creation Time</th>
                   <th>Action</th>
                 </tr>
-                <?php foreach($result as $result) { ?>
+                <?php foreach($userdatas as $userdatas) { ?>
                   <tr>
-                    <td><?php echo $result->userName ?></td>
-                    <td><?php echo $result->emailId ?></td>
-                    <td><?php echo $result->phoneNo ?></td>
-                    <td><?php echo $result->dateTime ?></td>
+                    <td><?php echo $userdatas->userName ?></td>
+                    <td><?php echo $userdatas->emailId ?></td>
+                    <td><?php echo $userdatas->phoneNo ?></td>
+                    <td><?php echo $userdatas->dateTime ?></td>
                     <td>
-                      <a href="update.php?emailId=<?php echo $result->emailId?>&action=edit" class="btn btn-info btn-md">Search</a> 
+                      <a href="update.php?emailId=<?php echo $result->emailId?>&action=edit" class="btn btn-info btn-md">Search</a>
+                      <a href="result.php?emailId=<?php echo $result->emailId?>&action=delete" class="btn btn-info btn-md">Delete</a> 
                       
                     </td>
                   </tr>

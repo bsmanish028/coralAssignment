@@ -41,6 +41,7 @@
   /*coralapi function end */
 
   $result = '';
+  $userdatas = '';
 
   // Call GET method fetch all records
   $method = 'GET';
@@ -134,38 +135,21 @@
 
     if(isset($_POST['submit']))
   {
-    // Call POST method to update and create
-    // if($_POST['submit'] == 'search')
-    // {
-    //   $method = 'POST';
-    //   $url = 'http://localhost:3000/connector/create';
-    //   $data = json_encode($_POST);
-
-    //   $result = coralapi($method, $url, $data);
-      
-    //   if($result){
-    //     $_SESSION['SuccessMessage']= "User Created Successfully";
-    //     header('location: all-users.php');
-
-    //   }else{
-    //     $_SESSION['ErrorMessage']= "Something went wrong";
-    //     header('location: all-users.php');
-    //   }
-    // }
-
-    // Call PUT method
+    
+    // Call GET method to get searched data
     if($_POST['submit'] == 'search')
     {
       $id = $_POST['emailId'];
 
       $method = 'GET';
       $url = 'http://localhost:3000/connector/'.$id;
-      $data = json_encode($_POST);
+      $data = NULL;
 
-      $result = coralapi($method, $url, $data);
+      $userdatas = coralapi($method, $url, $data);
+      $userdatas = json_decode($userdatas);
 
-      if($result){
-        $_SESSION['SuccessMessage']= "User search result shown below";
+      if($userdatas){
+        $_SESSION['SuccessMessage']= "User Found and User Data shown below";
         header('location: result.php');
 
       }else{
