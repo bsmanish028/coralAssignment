@@ -30,6 +30,7 @@ router.get('/:id', (req, res) => {
       res.status(500).send({ error: 'Something failed!' })
     }
     res.json(row[0])
+
   })
 });
 
@@ -67,7 +68,7 @@ router.put('/update/:id', (req, res) => {
   const datetime = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'); //getting current time using momentjs
   const User = {
         userName: post.userName,
-        emailId: post.emailId, 
+        emailId: id,
         phoneNo: post.phoneNo, 
         password: hpassword,
         dateTime: datetime
@@ -77,8 +78,10 @@ router.put('/update/:id', (req, res) => {
   dbcon.query(sql,[User, id], (err, result) => {
     if(err) {
       res.status(500).send({ error: 'Something failed!' })
+      console.log("User Updation failed: " +id + "Error: " +err)
     }
     res.json({'status': 'success'})
+    console.log("User Updated: " +id)
   })
 });
 
@@ -92,8 +95,10 @@ router.delete('/delete/:id', (req, res) => {
   dbcon.query(sql,id, (err, result) => {
     if(err) {
       res.status(500).send({ error: 'Something failed!' })
+      console.log("User deletion failed: " +id + "Error: " +err)
     }
     res.json({'status': 'success, User Data Deleted!'})
+    console.log("User Deleted: " +id)
   })
 })
 
@@ -152,22 +157,26 @@ router.post("/create", (req, res) => {
                   res.status(500).send({ error: `Something failed!` })
                 }else{
                   res.json({status: 'success, User Data Updated'})
+                  console.log("User Data Updated: " +post.emailId)
 
                 }
               })
             } catch (error) {
               res.status(500).send({ error: 'Something failed while updating!' })
+              console.log("User Updation failed: " +id + "Error: " +error)
 
             }
           }
         }else{
           res.json({status: 'success, User Data Inserted'})
+          console.log("User Data Inserted: " +post.emailId)
 
         }
       })
     }   
     catch (error) {
-      res.status(500).send({ error: 'Something failed while inserting!' }) 
+      res.status(500).send({ error: 'Something failed while inserting!'})
+      console.log("User Insertion failed, Error: " +error)
     }
   });
 
