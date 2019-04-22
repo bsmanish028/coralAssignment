@@ -1,5 +1,6 @@
 <?php
   require_once('api-call.php');
+  require_once('sessions.php');
 ?>
 
 
@@ -21,6 +22,10 @@
       <p><?php echo $result ?></p>
 
       <h2 style="text-align: center;">User Lobby</h2>
+      <div><?php echo Message();  
+              echo SuccessMessage();
+          ?>
+        </div>
 
     <span class="" style="margin-left: 74%;">Haven't register yet? GoTo <a href="index4.php">Register</a></span>
 

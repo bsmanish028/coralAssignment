@@ -1,4 +1,10 @@
 <?php
+      require_once('sessions.php');
+?>
+
+
+
+<?php
   /*coralapi function start */
   function coralapi($method, $url, $data) {
 
@@ -85,7 +91,14 @@
 
     $result = coralapi($method, $url, $data);
 
-    header('location: all-users.php');
+    if($result){
+      $_SESSION['SuccessMessage']= "User Deleted Successfully";
+      header('location: all-users.php');
+
+    }else{
+      $_SESSION['ErrorMessage']= "Something went wrong";
+      header('location: all-users.php');
+    }
   }
   
   if(isset($_POST['submit']))
@@ -99,7 +112,14 @@
 
       $result = coralapi($method, $url, $data);
       
-      header('location: all-users.php');
+      if($result){
+        $_SESSION['SuccessMessage']= "User Created Successfully";
+        header('location: all-users.php');
+
+      }else{
+        $_SESSION['ErrorMessage']= "Something went wrong";
+        header('location: all-users.php');
+      }
     }
 
     // Call PUT method
@@ -113,7 +133,14 @@
 
       $result = coralapi($method, $url, $data);
 
-      header('location: all-users.php');
+      if($result){
+        $_SESSION['SuccessMessage']= "User Updated Successfully";
+        header('location: all-users.php');
+
+      }else{
+        $_SESSION['ErrorMessage']= "Something went wrong";
+        header('location: all-users.php');
+      }
     }
   }
 ?>

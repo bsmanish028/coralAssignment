@@ -1,5 +1,6 @@
 <?php
   require_once('api-call.php');
+  require_once('sessions.php');
 ?>
 
 
@@ -48,6 +49,8 @@
 </div>
 
 <br>
+<span class="" style="margin-left: 58%;">Registered? GoTo <a href="all-users.php">User Loby</a></span>
+
 
   <div class="offset-3 col-sm-6" style="background-color: #ffffff;margin-top: 2%">
     <form action="" method="POST">

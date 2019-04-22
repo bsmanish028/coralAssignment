@@ -1,5 +1,6 @@
 <?php
   require_once('api-call.php');
+  require_once('sessions.php');
 ?>
 
 
@@ -75,8 +76,10 @@
 
         </div>
 
-        
-        <button class="btn btn-primary btn-block" type="submit" name="Submit" value="update">Update</button><br>
+        <div>
+        <input type="hidden" name="emailId" value="<?php echo $userdata->emailId ?>" />
+        <button class="btn btn-primary btn-block" type="submit" name="submit" value="update">Update</button><br>
+      </div>
       </fieldset>
     </form>
     <?php }?>
